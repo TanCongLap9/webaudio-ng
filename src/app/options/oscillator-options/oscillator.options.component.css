@@ -1,0 +1,7 @@
+.a-periodic-wave {
+    direction: rtl;
+    writing-mode: vertical-lr;
+    height: 100px;
+    width: 1.5rem;
+    appearance: slider-vertical;
+}

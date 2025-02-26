@@ -1,0 +1,27 @@
+<div [ngClass]="'card position-absolute user-select-none ' + (displayingSettings ? 'a-displaying-settings' : '')" [ngStyle]="{left: left + 'px', top: top + 'px'}"
+    (mousemove)="handleMove($event)" (mousedown)="handleDown($event)" (mouseup)="handleUp($event)"
+    (touchmove)="handleMove($event)" (touchstart)="handleDown($event)" (touchend)="handleUp($event)">
+    <div class="card-header d-flex flex-row justify-content-between align-content-center">
+        <h5 class="mb-0 align-self-center me-3">{{ model.name }}</h5>
+        <div class="btn-group">
+            <button class="btn btn-outline-secondary btn-sm" (click)="settings()">
+                <i class="fa fa-sliders" aria-hidden="true"></i>
+            </button>
+            <button *ngIf="model.runnable" class="btn btn-outline-dark btn-sm"
+                (click)="!model.running ? model.start() : model.stop()">
+                <i [ngClass]="'fa ' + (model.running ? 'fa-stop' : 'fa-play')" aria-hidden="true"></i>
+            </button>
+            <button *ngIf="!main" class="btn btn-outline-danger btn-sm" (click)="model.dispose()">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="displayingSettings" class="card-body overflow-auto">
+        <ng-content />
+    </div>
+    <div *ngIf="model.connectionsFrom.length" class="card-footer pb-0">
+        <ng-container *ngFor="let connection of model.connectionsFrom">
+            <p class="lh-1">&#x2192; {{ connection }}</p>
+        </ng-container>
+    </div>
+</div>

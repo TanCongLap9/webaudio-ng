@@ -1,0 +1,10 @@
+<div class="mb-3">
+    <label for="convolver-buffer" class="form-label">buffer</label>
+    <input type="file" name="buffer" id="convolver-buffer" class="form-control form-control-sm"
+        (input)="handleBufferChange($event.target!)" [disabled]="isBufferLoading">
+</div>
+<div class="mb-3">
+    <label for="convolver-normalize" class="form-label me-1">normalize</label>
+    <input type="checkbox" name="normalize" id="convolver-normalize" class="form-check-input"
+        [(ngModel)]="modelAs.node.normalize">
+</div>

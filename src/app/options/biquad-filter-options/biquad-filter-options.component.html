@@ -1,0 +1,35 @@
+<div class="mb-3">
+    <label for="biquadfilter-q" class="form-label">Q</label>
+    <input type="number" name="q" id="biquadfilter-q" class="form-control form-control-sm" step="0.05"
+        [(ngModel)]="modelAs.node.Q.value">
+</div>
+<div class="mb-3">
+    <label for="biquadfilter-detune" class="form-label">detune</label>
+    <input type="number" name="detune" id="biquadfilter-detune" class="form-control form-control-sm" step="10"
+        [(ngModel)]="modelAs.node.detune.value">
+</div>
+<div class="mb-3">
+    <label for="biquadfilter-frequency" class="form-label">frequency [-24000, 24000]</label>
+    <input type="number" name="frequency" id="biquadfilter-frequency" class="form-control form-control-sm" min="-24000"
+        max="24000" step="100" [(ngModel)]="modelAs.node.frequency.value">
+</div>
+<div class="mb-3">
+    <label for="biquadfilter-gain" class="form-label">gain</label>
+    <input type="number" name="gain" id="biquadfilter-gain" class="form-control form-control-sm"
+        [(ngModel)]="modelAs.node.gain.value">
+</div>
+<div class="mb-3">
+    <label for="biquadfilter-type" class="form-label">type</label>
+    <input type="text" name="type" id="biquadfilter-type" class="form-control form-control-sm"
+        [(ngModel)]="modelAs.node.type" list="biquadfilter-type-list">
+    <datalist id="biquadfilter-type-list">
+        <option>peaking</option>
+        <option>notch</option>
+        <option>lowshelf</option>
+        <option>lowpass</option>
+        <option>highshelf</option>
+        <option>highpass</option>
+        <option>bandpass</option>
+        <option>allpass</option>
+    </datalist>
+</div>

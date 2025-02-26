@@ -1,0 +1,26 @@
+<div class="mb-3">
+    <label for="analyser-fftsize" class="form-label">fftSize [32, 32768]</label>
+    <input type="number" name="fftsize" id="analyser-fftsize" class="form-control form-control-sm"
+        [(ngModel)]="modelAs.node.fftSize">
+</div>
+<div class="mb-3">
+    <label for="analyser-frequencybincount" class="form-label">frequencyBinCount</label>
+    <input type="number" name="frequencybincount" id="analyser-frequencybincount" class="form-control form-control-sm"
+        [(ngModel)]="modelAs.node.frequencyBinCount" disabled>
+</div>
+<div class="mb-3">
+    <label for="analyser-mindecibels" class="form-label">minDecibels</label>
+    <input type="number" name="mindecibels" id="analyser-mindecibels" class="form-control form-control-sm"
+        [(ngModel)]="modelAs.node.minDecibels">
+</div>
+<div class="mb-3">
+    <label for="analyser-maxdecibels" class="form-label">maxDecibels</label>
+    <input type="number" name="maxdecibels" id="analyser-maxdecibels" class="form-control form-control-sm"
+        [(ngModel)]="modelAs.node.maxDecibels">
+</div>
+<div class="mb-3">
+    <label for="analyser-smoothingtimeconstant" class="form-label">smoothingTimeConstant [0, 1]</label>
+    <input type="number" name="smoothingtimeconstant" id="analyser-smoothingtimeconstant"
+        class="form-control form-control-sm" min="0" max="1" step="0.1"
+        [(ngModel)]="modelAs.node.smoothingTimeConstant">
+</div>

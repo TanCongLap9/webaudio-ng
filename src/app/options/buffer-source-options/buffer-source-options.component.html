@@ -1,0 +1,29 @@
+<div class="mb-3">
+    <label for="buffersource-buffer" class="form-label">buffer</label>
+    <input type="file" name="buffer" id="buffersource-buffer" class="form-control form-control-sm"
+        (input)="handleBufferChange($event.target!)" [disabled]="isBufferLoading">
+</div>
+<div class="mb-3">
+    <label for="buffersource-detune" class="form-label">detune</label>
+    <input type="number" name="detune" id="buffersource-detune" class="form-control form-control-sm" step="10"
+        [(ngModel)]="modelAs.node.detune.value">
+</div>
+<div class="mb-3">
+    <label for="buffersource-loop" class="form-label me-2">loop</label>
+    <input type="checkbox" name="loop" id="buffersource-loop" class="form-check-input" [(ngModel)]="modelAs.node.loop">
+</div>
+<div class="mb-3">
+    <label for="buffersource-loopstart" class="form-label">loopStart</label>
+    <input type="number" name="loopstart" id="buffersource-loopstart" class="form-control form-control-sm" min="0"
+        [(ngModel)]="modelAs.node.loopStart">
+</div>
+<div class="mb-3">
+    <label for="buffersource-loopend" class="form-label">loopEnd</label>
+    <input type="number" name="loopend" id="buffersource-loopend" class="form-control form-control-sm" min="0"
+        [(ngModel)]="modelAs.node.loopEnd">
+</div>
+<div class="mb-3">
+    <label for="buffersource-playbackrate" class="form-label">playbackRate</label>
+    <input type="number" name="playbackrate" id="buffersource-playbackrate" class="form-control form-control-sm" min="0"
+        step="0.1" [(ngModel)]="modelAs.node.playbackRate.value">
+</div>

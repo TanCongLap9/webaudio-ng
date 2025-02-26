@@ -1,0 +1,20 @@
+<div class="position-relative overflow-hidden" style="height: 500px">
+    <ng-template [ngFor] let-node [ngForOf]="service.nodes">
+        <app-node [model]="node" [main]="node.main">
+            <ng-container [ngSwitch]="service.getType(node.node)">
+                <app-analyser-options *ngSwitchCase="'AnalyserNode'" [model]="node" />
+                <app-biquad-filter-options *ngSwitchCase="'BiquadFilterNode'" [model]="node" />
+                <app-buffer-source-options *ngSwitchCase="'AudioBufferSourceNode'" [model]="node" />
+                <app-constant-source-options *ngSwitchCase="'ConstantSourceNode'" [model]="node" />
+                <app-convolver-options *ngSwitchCase="'ConvolverNode'" [model]="node" />
+                <app-delay-options *ngSwitchCase="'DelayNode'" [model]="node" />
+                <app-dynamics-compressor-options *ngSwitchCase="'DynamicsCompressorNode'" [model]="node" />
+                <app-gain-options *ngSwitchCase="'GainNode'" [model]="node" />
+                <app-oscillator-options *ngSwitchCase="'OscillatorNode'" [model]="node" />
+                <app-panner-options *ngSwitchCase="'PannerNode'" [model]="node" />
+                <app-stereo-panner-options *ngSwitchCase="'StereoPannerNode'" [model]="node" />
+            </ng-container>
+        </app-node>
+    </ng-template>
+</div>
+<app-buttons />

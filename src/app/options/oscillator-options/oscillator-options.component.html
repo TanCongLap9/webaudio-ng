@@ -1,0 +1,46 @@
+<div class="mb-3">
+    <label for="oscillator-detune" class="form-label">detune</label>
+    <input type="number" name="detune" id="oscillator-detune" class="form-control form-control-sm" step="10"
+        [(ngModel)]="modelAs.node.detune.value">
+</div>
+<div class="mb-3">
+    <label for="oscillator-frequency" class="form-label">frequency [-24000, 24000]</label>
+    <input type="number" name="frequency" id="oscillator-frequency" class="form-control form-control-sm" min="-24000"
+        max="24000" step="100" [(ngModel)]="modelAs.node.frequency.value">
+</div>
+<div class="mb-3">
+    <label for="oscillator-type" class="form-label">type</label>
+    <input type="text" name="type" id="oscillator-type" class="form-control form-control-sm" [(ngModel)]="type"
+        (input)="handleTypeInput($event.target!)" list="oscillator-type-list">
+    <datalist id="oscillator-type-list">
+        <option>sawtooth</option>
+        <option>sine</option>
+        <option>square</option>
+        <option>triangle</option>
+        <option>custom</option>
+    </datalist>
+</div>
+<ng-template [ngIf]="type === 'custom'">
+    <label for="periodicwave-length" class="form-label">length</label>
+    <input type="number" name="length" id="periodicwave-length" class="form-control form-control-sm" min="0"
+        [(ngModel)]="periodicWaveLength" (input)="handlePeriodicWaveLengthInput($event.target!)">
+
+    <label class="form-label">real [0, 1]</label>
+    <div class="overflow-auto d-flex flex-row">
+        <ng-container *ngFor="let v of createArray(periodicWaveLength); index as i">
+            <input type="range" [name]="'real' + i" [id]="'real' + i" class="a-periodic-wave" list="periodic-wave-list"
+                min="-1" max="1" step="0.01" [value]="modelAs.real[i]" (input)="set(modelAs.real, i, $event.target!)">
+        </ng-container>
+    </div>
+
+    <label class="form-label">imag [0, 1]</label>
+    <div class="overflow-auto d-flex flex-row">
+        <ng-container *ngFor="let v of createArray(periodicWaveLength); index as i">
+            <input type="range" [name]="'imag' + i" [id]="'imag' + i" class="a-periodic-wave" list="periodic-wave-list"
+                min="-1" max="1" step="0.01" [value]="modelAs.imag[i]" (input)="set(modelAs.imag, i, $event.target!)">
+        </ng-container>
+    </div>
+</ng-template>
+<datalist id="periodic-wave-list">
+    <option>0</option>
+</datalist>

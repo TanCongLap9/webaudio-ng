@@ -1,0 +1,9 @@
+.card {
+    min-width: 200px;
+}
+.a-displaying-settings {
+    min-width: 350px;
+}
+.card-body {
+    max-height: 300px;
+}
